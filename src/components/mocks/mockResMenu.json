@@ -1,0 +1,42 @@
+{
+    "name": "Mehtas (Old Delhi Original)",
+    "dish": [
+        "biryani",
+        "burger",
+        "special"
+    ],
+    "card": [
+        {
+            "type": "ItemCategory",
+            "title": "recommended",
+            "itemCards": [
+                "biryani",
+                "burger",
+                "special"
+            ]
+        },
+        {
+            "type": "ItemCategory",
+            "title": "Not Tasty",
+            "itemCards": [
+                "biryani",
+                "burger",
+                "special",
+                "golgappe",
+                "papdi chaat"
+            ]
+        },
+        {
+            "type": "ItemCategory",
+            "title": "Starters",
+            "itemCards": [
+                "biryani",
+                "burger",
+                "special"
+            ]
+        }
+    ],
+    "avgRating": 4.4,
+    "isOpen": true,
+    "cloudinaryImageId": "jfh1necyodxbhutskgpl"
+}

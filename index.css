@@ -1,0 +1,288 @@
+.header,
+.header ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header {
+    border: 1px solid #ccc;
+}
+
+.logo-container img {
+    width: 150px;
+}
+
+.header ul {
+    display: flex;
+    padding-block: 20px;
+}
+
+.header ul li {
+    padding-inline: 50px;
+    list-style-type: none;
+    font-size: 20px;
+    font-family: system-ui;
+}
+
+.body {
+    padding: 10px;
+}
+
+.search {
+    display: flex;
+}
+
+.search .search-input,
+.search .filter-btn {
+    margin: 10px;
+}
+
+.res-container,
+.skeletonCardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    place-content: center;
+}
+
+.res-container .res-card {
+    border: 1px solid #ccc;
+    width: 200px;
+    height: 250px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.res-card:hover {
+    border: 2px solid #808080;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    cursor: pointer;
+}
+
+.res-card img {
+    width: 150px;
+    /* max-height: 170px; */
+    min-height: 170px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+
+}
+
+.res-card h3,
+.res-card h4 {
+    margin: 0;
+    font-family: monospace;
+}
+
+.login-logout-btn {
+    border: .5px solid #ccc;
+    border-radius: 3px;
+    width: 100px;
+    margin-right: 50px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+
+.menu {
+    position: relative;
+    text-align: center;
+}
+
+
+.menu img {
+    position: absolute;
+    z-index: -1;
+    /* height: 100%; */
+    opacity: 0.5;
+    filter: blur(10px);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.menu ul {
+    padding: unset;
+}
+
+.menu ul li {
+    text-transform: capitalize;
+}
+
+/* Style the buttons that are used to open and close the accordion panel */
+.menu .accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: 1px solid #fff;
+    outline: none;
+    transition: 0.4s;
+    background: transparent;
+    text-transform: capitalize;
+    font-weight: bold;
+    font-size: large;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.menu .active,
+.menu .accordion:hover {
+    background-color: #fff;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.menu .panel {
+    padding: 0 18px;
+    background: transparent;
+    /* display: none; */
+    overflow: hidden;
+    border: 1px solid #fff;
+    margin-inline: 1px;
+}
+
+.menu .panel button {
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 2px;
+    color: #fff;
+    cursor: pointer;
+    width: 30px;
+    height: 20px;
+}
+
+.menu .panel button:hover {
+    background-color: #fff;
+    border: 2px solid #fff;
+    color: #000;
+}
+
+.menu .accordionParent {
+    width: 500px;
+    margin: auto;
+}
+
+
+.about-file {
+    display: flex;
+    gap: 10px;
+}
+
+.user-card {
+    border: 1px solid #ccc;
+    padding-inline: 50px;
+    width: fit-content;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    font-family: system-ui;
+}
+
+
+
+/* skeleton */
+.card {
+    width: 200px;
+    background-color: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, .12);
+
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.image {
+    height: 200px;
+}
+
+.image img {
+    display: block;
+    width: 100%;
+    height: inherit;
+    object-fit: cover;
+}
+
+.content {
+    padding: 2rem 1.8rem;
+}
+
+h4 {
+    margin: 0 0 1rem;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+}
+
+.description {
+    font-size: 1rem;
+    line-height: 1.4rem;
+}
+
+.loading .image,
+.loading h4,
+.loading .description {
+    background-color: #ededed;
+    background: linear-gradient(100deg,
+            rgba(255, 255, 255, 0) 40%,
+            rgba(255, 255, 255, .5) 50%,
+            rgba(255, 255, 255, 0) 60%) #ededed;
+    background-size: 200% 100%;
+    background-position-x: 180%;
+    animation: 1s loading ease-in-out infinite;
+}
+
+@keyframes loading {
+    to {
+        background-position-x: -20%;
+    }
+}
+
+.loading h4 {
+    min-height: 1.6rem;
+    border-radius: 4px;
+    animation-delay: .05s;
+}
+
+.loading .description {
+    min-height: 4rem;
+    border-radius: 4px;
+    animation-delay: .06s;
+}
+
+.promotedDivParent {
+    position: relative;
+}
+
+
+.promotedDivParent>label {
+    position: absolute;
+    left: 3px;
+    top: -1px;
+    background: #282828;
+    border-radius: 5px 0px 5px 0px;
+    color: white;
+    padding: 5px 10px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    border: 1px solid #fff;
+}
+
+.contact-container h1 {
+    place-self: center;
+}
+
+.contact-container form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    gap: 10px;
+    justify-self: center;
+}
+
+.contact-container form input,
+.contact-container form input {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
