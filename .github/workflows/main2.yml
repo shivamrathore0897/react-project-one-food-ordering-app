@@ -1,0 +1,37 @@
+steps:
+  - name: Checkout Account 1 repo (shivamrathore0897)
+    uses: actions/checkout@v4
+
+  - name: Set up Git credentials
+    run: |
+      git config --global user.name "github-actions[bot]"
+      git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+
+  - name: Get latest commit SHA from Account 2
+    id: get_sha
+    run: |
+      LATEST_SHA=$(git ls-remote https://github.com/shivamDeloitte0897/react-project-one-food-ordering-app.git refs/heads/main | cut -f1)
+      echo "latest_sha=$LATEST_SHA" >> $GITHUB_OUTPUT
+
+  - name: Read previously synced SHA
+    id: read_sha
+    run: |
+      SYNCED_SHA=""
+      if [ -f .last_synced_sha ]; then
+        SYNCED_SHA=$(cat .last_synced_sha)
+      fi
+      echo "synced_sha=$SYNCED_SHA" >> $GITHUB_OUTPUT
+
+  - name: Sync if new commit found
+    if: steps.get_sha.outputs.latest_sha != steps.read_sha.outputs.synced_sha
+    run: |
+      echo "New commit found. Pulling from Account 2..."
+      git remote add account2 https://github.com/shivamDeloitte0897/react-project-one-food-ordering-app.git
+      git fetch account2
+      git checkout main
+      git merge account2/main --allow-unrelated-histories -m "Auto-sync from Account 2"
+      echo "${{ steps.get_sha.outputs.latest_sha }}" > .last_synced_sha
+      git add .last_synced_sha
+      git commit -m "Update last synced SHA"
+      git push origin main
