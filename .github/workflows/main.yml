@@ -1,0 +1,30 @@
+name: Sync From Account 2
+
+on:
+  schedule:
+    - cron: '*/1 * * * *'  # every 1 minute
+  workflow_dispatch:        # allow manual trigger
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Account 1 repo
+        uses: actions/checkout@v4
+
+      - name: Set up Git
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "action@github.com"
+
+      - name: Add Account 2 repo as remote and fetch
+        run: |
+          git remote add account2 https://github.com/shivamDeloitte0897/react-project-one-food-ordering-app
+          git fetch account2
+
+      - name: Merge Account 2 changes into main
+        run: |
+          git checkout main
+          git merge account2/main --allow-unrelated-histories -m "Automated sync from Account 2"
+          git push origin main
